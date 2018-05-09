@@ -1,0 +1,17 @@
+#!/bin/bash
+if [ "$1" = "-y" ]
+then
+    sudo apt update && sudo apt -y dist-upgrade
+    sudo do-release-upgrade
+    exit 0
+else
+    read -p "Do you want to update and upgrade your packages?(y/n)" RES
+    if [ "$RES" = y ]
+    then
+        sudo apt update && sudo apt -y dist-upgrade
+        sudo do-release-upgrade
+        exit 0
+    fi
+fi
+echo "Abort."
+exit 1

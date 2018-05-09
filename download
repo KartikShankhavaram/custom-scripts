@@ -1,0 +1,10 @@
+#!/bin/bash
+URL=$1
+DIRECTORY=$2
+if [ -d $DIRECTORY ]
+then
+    echo "Downloading from $URL to $DIRECTORY"
+    aria2c --file-allocation=none -c -x 10 -s 10 -d "$DIRECTORY" $URL
+else
+    echo "$DIRECTORY: Not a directory"
+fi
